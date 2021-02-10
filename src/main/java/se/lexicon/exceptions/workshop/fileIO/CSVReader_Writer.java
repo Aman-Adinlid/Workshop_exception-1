@@ -19,20 +19,21 @@ public class CSVReader_Writer {
      */
     public static List<String> getMaleFirstNames() {
 
-        BufferedReader reader= null;
+        BufferedReader reader = null;
         List<String> names = null;
-        try { reader = Files.newBufferedReader(Paths.get("firstname_males.txt"));
+        try {
+            reader = Files.newBufferedReader(Paths.get("firstname_males.txt"));
             names = reader.lines()
                     .flatMap(line -> Stream.of(line.split(",")))
                     .collect(Collectors.toList());
 
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if ( reader!=null){
+        } finally {
+            if (reader != null) {
                 try {
                     reader.close();
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -49,7 +50,7 @@ public class CSVReader_Writer {
     public static List<String> getFemaleFirstNames() {
         List<String> names = null;
 
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get("firstname_female.txt"))){
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("firstname_female.txt"))) {
             names = reader.lines()
                     .flatMap(line -> Stream.of(line.split(",")))
                     .collect(Collectors.toList());
@@ -92,10 +93,10 @@ public class CSVReader_Writer {
     public static void saveLastNames(List<String> lastNames) throws IOException {
 
         BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt"));
-            for (String toWrite : lastNames) {
-                writer.append(toWrite + ",");
-            }
-            writer.flush();
+        for (String toWrite : lastNames) {
+            writer.append(toWrite + ",");
+        }
+        writer.flush();
     }
 
     public static void saveFemaleNames(List<String> femaleNames) {
@@ -115,10 +116,10 @@ public class CSVReader_Writer {
 
     public static void saveMaleNames(List<String> maleNames) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_males.txt"));
-            for (String toWrite : maleNames) {
-                writer.append(toWrite + ",");
-            }
-            writer.flush();
+        for (String toWrite : maleNames) {
+            writer.append(toWrite + ",");
+        }
+        writer.flush();
 
 
     }

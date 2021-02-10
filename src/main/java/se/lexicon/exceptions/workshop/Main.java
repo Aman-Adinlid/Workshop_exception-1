@@ -13,11 +13,11 @@ import javax.imageio.IIOException;
 
 public class Main {
 
-	public static void main(String[] args) {
-		
-		List <String> maleFirstNames =  CSVReader_Writer.getMaleFirstNames();
-        List <String> femaleFirstNames = CSVReader_Writer.getFemaleFirstNames();
-        List <String> lastNames = null;
+    public static void main(String[] args) {
+
+        List<String> maleFirstNames = CSVReader_Writer.getMaleFirstNames();
+        List<String> femaleFirstNames = CSVReader_Writer.getFemaleFirstNames();
+        List<String> lastNames = null;
 
         try {
             lastNames = CSVReader_Writer.getLastNames();
@@ -28,7 +28,7 @@ public class Main {
         }
 
 
-        NameService nameService = new NameService(maleFirstNames, femaleFirstNames,lastNames);
+        NameService nameService = new NameService(maleFirstNames, femaleFirstNames, lastNames);
 
         Person test = nameService.getNewRandomPerson();
         List<Person> addPersonToList = new ArrayList<>();
@@ -44,6 +44,6 @@ public class Main {
     }
 
 
-	}
+}
 
 
